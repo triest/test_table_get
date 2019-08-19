@@ -18,9 +18,8 @@
         var table = document.getElementById("dynamic_field");
         table.innerHTML = "";
         $.ajax({
-                url: "database.php?seach",
+                url: "database.php",
                 dataType: "json",
-                data: "data",
                 success: function (data) {
                     console.log(data);
                     for (var x = 0; x < data.length; x++) {
@@ -31,17 +30,16 @@
             }
         );
     }
-    ,
+
     function myFunction2() {
         console.log("d");
         var table = document.getElementById("dynamic_field");
-        var seach = document.getElementById("seach").valueOf().toString();
-
+        var seach = document.getElementById("seach").value;
         table.innerHTML = "";
+        let url = "database.php?seach=" +seach;
         $.ajax({
-                url: "database.php?seach",
+                url: url,
                 dataType: "json",
-                data: {seach: seach},
                 success: function (data) {
                     console.log(data);
                     for (var x = 0; x < data.length; x++) {
