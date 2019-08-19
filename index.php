@@ -6,6 +6,8 @@
 <body onload="myFunction()">
 
 <h1>Hello World!</h1>
+<label>Seach:</label>
+<input type="text" id="seach" name="seach" onchange="myFunction()" oninput="myFunction()">
 <table class="table table-bordered" id="dynamic_field">
 
 </table>
@@ -13,6 +15,8 @@
 <script>
     function myFunction() {
         console.log("d");
+        var table = document.getElementById("dynamic_field");
+        table.innerHTML = "";
         $.ajax({
                 url: "database.php",
                 dataType: "json",
