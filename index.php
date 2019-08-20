@@ -27,8 +27,8 @@
     });
 
     function doneTyping() {
-
-        alert("end input");
+        var input = document.getElementById("seach").value;
+        alert(input);
     }
 </script>
 
