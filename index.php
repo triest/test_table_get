@@ -1,55 +1,24 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>change demo</title>
+    <style>
+        div {
+            color: red;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 </head>
-<body onload="myFunction()">
+<body>
 
-<h1>Hello World!</h1>
-<label>Seach:</label>
-<input type="text" id="seach" name="seach" onchange="myFunction2()" oninput="myFunction2()">
-<table class="table table-bordered" id="dynamic_field">
-
-</table>
+<input type="text" id="seach" name="seach">
+<div></div>
 
 <script>
-    function myFunction() {
-        console.log("d");
-        var table = document.getElementById("dynamic_field");
-        table.innerHTML = "";
-        $.ajax({
-                url: "database.php",
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-                    for (var x = 0; x < data.length; x++) {
-                        $('#dynamic_field').append('<tr id="row">' +
-                            '<tr><td>' + data[x].id + '<td>' + data[x].name + '</td><tr>');
-                    }
-                }
-            }
-        );
-    }
-
-    function myFunction2() {
-        console.log("d");
-        var table = document.getElementById("dynamic_field");
-        var seach = document.getElementById("seach").value;
-        table.innerHTML = "";
-        let url = "database.php?seach=" +seach;
-        $.ajax({
-                url: url,
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-                    for (var x = 0; x < data.length; x++) {
-                        $('#dynamic_field').append('<tr id="row">' +
-                            '<tr><td>' + data[x].id + '<td>' + data[x].name + '</td><tr>');
-                    }
-                }
-            }
-        );
-    }
+    $('#seach').keyup(function(eventObject){
+        alert('Клавиша клавиатуры возвратилась в ненажатое состояние. Код символа на этой клавише - ');
+    });
 </script>
 
 </body>
