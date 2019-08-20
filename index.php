@@ -16,9 +16,20 @@
 <div></div>
 
 <script>
-    $('#seach').keyup(function(eventObject){
-        alert('Клавиша клавиатуры возвратилась в ненажатое состояние. Код символа на этой клавише - ');
+    //setup before functions
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 1000;  //time in ms, 5 second for example
+
+
+    $('#seach').keyup(function (eventObject) {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
     });
+
+    function doneTyping() {
+
+        alert("end input");
+    }
 </script>
 
 </body>
